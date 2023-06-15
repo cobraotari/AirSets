@@ -29,8 +29,8 @@ public class ProductDAOImpl implements ProductDao {
             @Override
             public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Product product = new Product();
-                product.setProduct_Id(rs.getInt("product_id"));
-                product.setProduct_Name(rs.getString("product_name"));
+                product.setProduct_Id(rs.getInt("id"));
+                product.setProduct_Name(rs.getString("name"));
                 product.setProduct_Dec(rs.getString("product_dec"));
                 product.setPrice(rs.getDouble("price"));
                 product.setStock(rs.getInt("stock"));
@@ -41,7 +41,7 @@ public class ProductDAOImpl implements ProductDao {
 
     @Override
     public boolean createProduct(Product product) {
-        String sql = "INSERT INTO product (product_name, product_dec, price, stock) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO product (name, product_dec, price, stock) VALUES (?, ?, ?, ?)";
         int rowsAffected = jdbcTemplate.update(sql, product.getProduct_Name(), product.getProduct_Dec(),
                 product.getPrice(), product.getStock());
         return rowsAffected > 0;
@@ -55,8 +55,8 @@ public class ProductDAOImpl implements ProductDao {
             @Override
             public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Product product = new Product();
-                product.setProduct_Id(rs.getInt("product_id"));
-                product.setProduct_Name(rs.getString("product_name"));
+                product.setProduct_Id(rs.getInt("id"));
+                product.setProduct_Name(rs.getString("name"));
                 product.setProduct_Dec(rs.getString("product_dec"));
                 product.setPrice(rs.getDouble("price"));
                 product.setStock(rs.getInt("stock"));
@@ -67,7 +67,7 @@ public class ProductDAOImpl implements ProductDao {
 
     @Override
     public boolean updateProduct(Product product) {
-        String sql = "UPDATE product SET product_name = ?, product_dec = ?, price = ?, stock = ? WHERE product_id = ?";
+        String sql = "UPDATE product SET name = ?, product_dec = ?, price = ?, stock = ? WHERE id = ?";
         int rowsAffected = jdbcTemplate.update(sql, product.getProduct_Name(), product.getProduct_Dec(),
                 product.getPrice(), product.getStock(), product.getProduct_Id());
         return rowsAffected > 0;
@@ -75,7 +75,7 @@ public class ProductDAOImpl implements ProductDao {
 
     @Override
     public boolean removeProduct(Product product) {
-        String sql = "DELETE FROM product WHERE product_id = ?";
+        String sql = "DELETE FROM product WHERE id = ?";
         int rowsAffected = jdbcTemplate.update(sql, product.getProduct_Id());
         return rowsAffected > 0;
     }

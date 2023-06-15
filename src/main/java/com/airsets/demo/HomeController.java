@@ -29,7 +29,7 @@ import java.util.List;
 public class HomeController {
     private final ProductDAOImpl products;
     @GetMapping("/")
-    public String index(Model model, @CookieValue(value = "product") String cookies) {
+    public String index(Model model, @CookieValue(value = "product", required = false) String cookies) {
         String[] carts = cookies.split(":");
         System.out.println(":");
         model.addAttribute("products", products.getAllProducts());
