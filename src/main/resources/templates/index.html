@@ -1,0 +1,219 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<html>
+<head>
+  <meta charset="ISO-8859-1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+      .bottom-page {
+  background-color: #E96C62;
+  margin-top: 120px;
+  padding: 20px 0;
+  color: #fff;
+}
+
+.payments-section img {
+  height: 30px;
+  width: auto;
+}
+
+.links-section p {
+  margin: 0;
+}
+
+.links-section a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.links-section a:last-child {
+  margin-right: 0;
+}
+
+.logo-section {
+  display: flex;
+}
+
+.logo-section img {
+  height: 30px;
+  width: auto;
+  margin-left: 10px;
+}
+
+
+      </style>
+  </head>
+<body style="font-family: 'Inter', sans-serif;">
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-black" style="margin-top:30px">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Airsets</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/store'}">Shop All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/track'}">Track Your Order</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/checkout'}" th:text="'Bag (' + ${cart} + ')'">Bag (0)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-right: 10px;">
+  <div class="row">
+    <div class="col-md-5">
+      <p style="font-size: 40px; margin-top:180px; text-align: center;"><span id="auto-type"></span></p>
+      <p style="font-size:40px;">way to order your AirPods</p>
+      <p style="margin-top:55px">Tired of the slow and complicated process of ordering? Then try HiCity’s Store, we promise it won’t just be easy it will also be fast!      </p>
+      <a th:href="@{'/store'}" class="btn" style="background-color: #E96C62; color:white; border-radius:30px; padding: 10px 40px; margin-top:20px">Shop Now</a>
+    </div>
+    <div class="col-md-7">
+      <img src="https://hicitypods.com/wp-content/uploads/elementor/thumbs/TestFingerscrossed-pzayt4tsq275si3jtg0x4yf6ynvz7gk1jxjllh5jk0.png" width="550px" height="550px" style="margin-top:100px">
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row" style="margin-top:70px">
+    <div class="col-md-3">
+      <img src="https://hicitypods.com/wp-content/uploads/elementor/thumbs/Box-pzayt3vpeb8mduxwv34ipvc0l8fe1lcf3chbzolrhw.png" width="53" height="56" alt="">
+      <p>Tracked shipping - get your products delivered to your door, and track it on its journey</p>
+    </div>
+    <div class="col-md-3">
+      <img src="https://hicitypods.com/wp-content/uploads/elementor/thumbs/aiirrepsssss-pzayt7n25ndroasg94r0zuduyrwuwdrcfv39wsg6t0.png" width="53" height="56" alt="">
+      <p>Best and newest products on the market - we want you to have the latest and greatest!      </p>
+    </div>
+    <div class="col-md-3">
+      <img src="https://hicitypods.com/wp-content/uploads/elementor/thumbs/moneyh-pzayt6p7ytchcottemcefcmede1hoonm3qfsfihkz8.png" width="53" height="56" alt="">
+      <p>Affordable - we want everyone to enjoy our products, no matter your financial situation      </p>
+    </div>
+    <div class="col-md-3">
+      <img src="https://hicitypods.com/wp-content/uploads/elementor/thumbs/handshake-pzayt9iqjbgcbippy5ka4tws5jnlbryt44e8vcdegk.png" width="53" height="56" alt="">
+      <p>Easiest and safest way to order - tired of complicated ordering methods? So are we.      </p>
+    </div>
+    <hr style="margin-top: 50px; margin-bottom:50px;">
+
+    <div th:each="product:${products}" class="col-md-3">
+      <div class="card border-0" style="width: 18rem;">
+        <img src="https://hicitypods.com/wp-content/uploads/2021/11/AirPods-White-Clean-gen-2.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center; margin-bottom: 10px; font-size: 25px; color:#7A7A7A" th:text="${product.Product_Name}"></h5>
+          <h5 class="card-title" style="text-align: center; margin-bottom: 10px; font-size: 40px; color:#E96C62;" th:text="${product.price}+'$'"></h5>
+          <a href="#" class="btn" th:onclick="'javascript:addToCart(\'' + ${product.Product_Id} + '\');'" style="display: flex; justify-content: center; color:#515151; background-color:#EbE9EB;">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-md-7" style="margin-top:150px;">
+    <p style="color: #66A5C0; font-size: 90px; text-align: center;">FAQ</p>
+  </div>
+  <div class="col-md-5" style="margin-top:150px;">
+    <p style="color: #66A5C0; font-size: 20px; cursor: pointer;" onclick="toggleAnswer('shipping')">How long does shipping take?</p>
+    <p id="shipping" style="display: none;">Shipping typically takes 5-7 business days.</p>
+
+    <p style="color: #66A5C0; font-size: 20px; cursor: pointer;" onclick="toggleAnswer('brandedBox')">Do I get the branded box?</p>
+    <p id="brandedBox" style="display: none;">Yes, all our products come with the original branded box.</p>
+
+    <p style="color: #66A5C0; font-size: 20px; cursor: pointer;" onclick="toggleAnswer('support')">Do you provide support?</p>
+    <p id="support" style="display: none;">Yes, we offer comprehensive support for all our products.</p>
+
+    <p style="color: #66A5C0; font-size: 20px; cursor: pointer;" onclick="toggleAnswer('order')">What happens when I have ordered?</p>
+    <p id="order" style="display: none;">Once you have placed your order, you will receive a confirmation email and we will begin processing your shipment.</p>
+</div>
+</div>  
+<div class="bottom-page">
+  <div class="container" style="  display: flex;
+  justify-content: space-between;
+  align-items: center;">
+    <div class="payments-section">
+      <img src="https://hicitypods.com/wp-content/uploads/2021/11/MethodsOfPaymentC-1-copy.webp" alt="Payments Methods">
+    </div>
+    <div class="links-section">
+      <p>
+        <a href="/track">Track your order</a> |
+        <a href="/privacy-policy">Privacy Policy</a> |
+        <a href="/refund-returns">Refund and Returns Policy​</a>
+      </p>
+    </div>
+    <div class="logo-section">
+      <a href="https://www.reddit.com"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6cc3c481a15a141738_icon_clyde_white_RGB.png" alt="Reddit"></a>
+      <a href="https://discord.com"><img src="https://www.redditinc.com/assets/images/site/reddit-logo.png" alt="Discord"></a>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+<script>
+  var typed = new Typed("#auto-type", {
+    strings: ["The easiest","The fastest","The smoothest","The leading","The simplest", "The quickest and safest"],
+    typeSpeed: 150,
+    backSpeed: 150,
+    loop: true,
+  })
+function addToCart(value) {
+    var expires = "";
+
+    var date = new Date();
+    date.setTime(date.getTime() + (52460601000));
+    expires = "; expires=" + date.toUTCString();
+
+    // "product=1; expires = date; path=/"
+    // "product=1,2,3,4; expires = date; path=/"
+
+    var productValues = getCookieContent();
+
+    if (productValues === null) {
+        document.cookie = "product=" + (value || "") + expires + "; path=/";
+    } else {
+        document.cookie = "product=" + productValues + ":" + value + expires + "; path=/";
+    }
+    location.reload();
+
+}
+function getCookieContent() {
+    try {
+        var cookieParameters = document.cookie.split(';');
+        var productInfo = cookieParameters[0];
+        var productValuesListString = productInfo.split("=")[1];
+        return productValuesListString;
+    } catch(e) {
+        return null; // no cookies created yet
+    }
+}
+function eraseCookie(name) {
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function toggleAnswer(id) {
+    $("#" + id).slideToggle();
+  }
+</script>
+<script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script></body>
+</html>

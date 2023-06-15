@@ -1,0 +1,209 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+      body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+
+
+    h1 {
+      font-size: 30px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .mb-0 {
+      margin-bottom: 0 !important;
+    }
+
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 26px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+    .bottom-page {
+  background-color: #E96C62;
+  margin-top: 120px;
+  padding: 20px 0;
+  color: #fff;
+}
+
+.payments-section img {
+  height: 30px;
+  width: auto;
+}
+
+.links-section p {
+  margin: 0;
+}
+
+.links-section a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.links-section a:last-child {
+  margin-right: 0;
+}
+
+.logo-section {
+  display: flex;
+}
+
+.logo-section img {
+  height: 30px;
+  width: auto;
+  margin-left: 10px;
+}
+.bottom-page {
+  background-color: #E96C62;
+  margin-top: 120px;
+  padding: 20px 0;
+  color: #fff;
+}
+
+.payments-section img {
+  height: 30px;
+  width: auto;
+}
+
+.links-section p {
+  margin: 0;
+}
+
+.links-section a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.links-section a:last-child {
+  margin-right: 0;
+}
+
+.logo-section {
+  display: flex;
+}
+
+.logo-section img {
+  height: 30px;
+  width: auto;
+  margin-left: 10px;
+}
+
+      </style>
+</head>
+<body style="font-family: 'Inter', sans-serif;">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-black" style="margin-top:30px">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Airsets</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/store'}">Shop All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/contact'}">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/track'}">Track Your Order</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/checkout'}" th:text="'Bag (' + ${cart} + ')'">Bag (0)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="margin-bottom: 100px;">
+            <p style="text-align: center; font-size: 40px; color: #66A5C0;"><strong>Refund and Returns Policy
+            </strong></p>
+        </div>
+          <h1>Refund and Returns</h1>
+          <p>If you're not satisfied with your purchase or need to request a refund, please review our refund and returns policy below:</p>
+      
+          <h3>Refund Policy</h3>
+          <p>If you are not 100% satisfied with your purchase, you can request a refund within 30 days of the purchase date. To be eligible for a refund, the item must be in its original condition and packaging.</p>
+      
+          <h3>Returns Policy</h3>
+          <p>If you wish to return an item, please follow these steps:</p>
+          <ol>
+            <li>Contact our customer support team to initiate the return process.</li>
+            <li>Package the item securely and include all original accessories and documentation.</li>
+            <li>Ship the item back to our specified address.</li>
+            <li>Once we receive the item and confirm its condition, we will process your refund.</li>
+          </ol>
+      
+          <h3>Contact Us</h3>
+          <p>If you have any questions or need further assistance, please contact our customer support team:</p>
+          <ul>
+            <li>Email: support@airsets.com</li>
+            <li>Phone: 1-800-123-4567</li>
+          </ul>
+    </div>
+</div>
+
+<div class="bottom-page">
+  <div class="container" style="  display: flex;
+  justify-content: space-between;
+  align-items: center;">
+    <div class="payments-section">
+      <img src="https://hicitypods.com/wp-content/uploads/2021/11/MethodsOfPaymentC-1-copy.webp" alt="Payments Methods">
+    </div>
+    <div class="links-section">
+      <p>
+        <a href="/track">Track your order</a> |
+        <a href="/privacy-policy">Privacy Policy</a> |
+        <a href="/refund-returns">Refund and Returns Policy​</a>
+      </p>
+    </div>
+    <div class="logo-section">
+      <a href="https://www.reddit.com"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6cc3c481a15a141738_icon_clyde_white_RGB.png" alt="Reddit"></a>
+      <a href="https://discord.com"><img src="https://www.redditinc.com/assets/images/site/reddit-logo.png" alt="Discord"></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
